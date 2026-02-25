@@ -9,5 +9,5 @@ int main()
 	cin >> input;
 
 	for (int i{ 1 }; i <= input; i++)
-		cout << string(input - i, ' ') <<  string(i * 2 - 1, '*') << '\n';
+		cout << string(input - i, ' ') <<  string(i * 2 - 1, '*') << '\n'; //same with v1, just use string to print, not for loop.
 }
