@@ -35,3 +35,5 @@ int main() {
 | `k` | 星星 | `2*i-1` |
 
 請按下 <kbd>Ctrl</kbd> + <kbd>C</kbd> 來複製。
+
+> test
