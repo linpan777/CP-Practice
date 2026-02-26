@@ -12,24 +12,8 @@ int main() {
     return 0;
 }
 ```
-2. 待辦清單
-[x] 學會 Git 基本指令
+> [!NOTE]
+> 這是筆記區域，適合寫補充說明。
 
-[x] 解決 Commit 轉圈圈問題
-
-[ ] 寫出菱形聖誕樹
-
-3. 特別提示
-[!TIP]
-記得多用 git status 來檢查狀態喔！
-
-[!WARNING]
-不要把 .env 檔案上傳到 GitHub！
-
-4. 摺疊內容
-<details>
-<summary>👉 點擊查看詳細解法</summary>
-
-這裡是很長的秘密內容...
-
-</details>
+> [!TIP]
+> 這裡可以寫一些小撇步或捷徑。
