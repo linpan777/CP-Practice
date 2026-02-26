@@ -53,13 +53,12 @@ for (int i = 1; i <= n; i++) {
 | `Space` | 左側空格數 | `n - i` |
 | `Star` | 星星數量 | `2 * i - 1` |
 
-### 2. 執行流程 (Execution)
+### 2. 執行流程
 程式碼的最終型態是一個 **單層迴圈**，內容如下：
-```cpp
-// Pseudo Code
-Loop (i from 1 to n) {
-    Print( Spaces(n-i) );   // 先印空格
-    Print( Stars(2*i-1) );  // 再印星星
-    Print( NewLine );       // 最後換行
-}
-```
+1. input tree high <kbd>n</kbd>
+2. for(n times)
+     output `space`<kbd>(2\*i-1)</kbd>
+            `space`<kbd>i</kbd>
+            '\n'
+
+
