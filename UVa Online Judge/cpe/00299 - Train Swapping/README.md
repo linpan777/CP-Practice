@@ -83,11 +83,23 @@ int main()
 
 </details>
 
+[source code](v2(更好-氣泡演算法).cpp)
+
+## Optimization Points:
+1. Since v1 performs a back-track every time it encounters a swap, the time complexity remains unstable. The v2 algorithm effectively stabilizes the time complexity at $T \times C^2$.
+2. For the best optimization, please refer to v3, effectively reducing the time complexity to  $O(T \cdot C \log C)$
+the only place to modify：
+<details>
+```C++
+for (int j{ 0 }; j < C - 1 - i; j++)
+```
+</details>
+
 ## Complexity Analysis
-Time complexity: O(T * C^2)
-Space complexity: O(C)
+- Time complexity:  $O(T \cdot C \log C)$
+- Space complexity: $O(C)$
 
 ## Note
 
 
-[New] 遇到多筆測資 (Test Cases) 時，優先考慮把變數跟陣列宣告在 while 迴圈裡面，讓它們自動重生，可以避免很多忘記歸零的低級失誤！
+[New] 遇到多筆測資 (Test Cases) 時，優先考慮把變數跟陣列宣告在 while 迴圈裡面，讓它們自動重生，可以避免很多忘記歸零的低級失誤
