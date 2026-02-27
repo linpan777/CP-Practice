@@ -4,7 +4,7 @@
 Brief description of the problen -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=6&page=show_problem&problem=431)
 
 ## Learning Objectives
-1. Learn about 3n+1 <ruby>conjecture<rt>猜想</rt></ruby>
+1. Learn about 3n+1 <ruby>conjecture<rt>*猜想*</rt></ruby>
 2. Practice i/o in C++
 3. loop logic
 
