@@ -6,14 +6,13 @@ Brief description of the problem -> [here](https://onlinejudge.org/index.php?opt
 ## Learning Objectives
 1. Learn and implement <ruby>Bubble Sort<rt><i>(氣泡排序法)</i></rt></ruby>.
 2. Understand the concept of "<ruby>Inversions" <rt><i>(逆序數對)</i></rt><ruby> in an array.
-3. 
 
 ## Thinking
 ### variable reference
-| 變數 | 意義 |
+| variable | meaning |
 | :--- | :--- |
-| `T` | input: number of test cases (測資數量) |
-| `C` | input: length of the train / number of carriages (車廂數量) |
+| `T` | input: number of test cases |
+| `C` | input: length of the train / number of carriages |
 | `carriages` | vector to store the current order of carriages |
 | `times` | core variable to count the total number of swaps |
 | `temp` | to put carriage number in vector |
@@ -99,7 +98,5 @@ for (int j{ 0 }; j < C - 1 - i; j++)
 - Time complexity:  $O(T \cdot C \log C)$
 - Space complexity: $O(C)$
 
-## Note
-
-
-[New] 遇到多筆測資 (Test Cases) 時，優先考慮把變數跟陣列宣告在 while 迴圈裡面，讓它們自動重生，可以避免很多忘記歸零的低級失誤
+> [!Note]
+> 氣泡排序法的學習
