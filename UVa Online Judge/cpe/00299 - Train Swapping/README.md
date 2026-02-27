@@ -1,5 +1,8 @@
 # UVa 00299 - Train Swapping
 
+> [!Note]
+> 氣泡排序法的學習
+
 ## Problem Description
 Brief description of the problem -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=235)
 
@@ -97,6 +100,3 @@ for (int j{ 0 }; j < C - 1 - i; j++)
 ## Complexity Analysis
 - Time complexity:  $O(T \cdot C \log C)$
 - Space complexity: $O(C)$
-
-> [!Note]
-> 氣泡排序法的學習
