@@ -1,94 +1,93 @@
-# UVa 100 - The 3n+1 Problem
+# UVa 00299 - Train Swapping
 
 ## Problem Description
-Brief description of the problen -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=6&page=show_problem&problem=431)
+Brief description of the problem -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=4&page=show_problem&problem=235)
 
 ## Learning Objectives
-1. Learn about 3n+1 <ruby>conjecture<rt>*猜想*</rt></ruby>
-2. Practice i/o in C++
-3. loop logic
+1. Learn and implement <ruby>Bubble Sort<rt><i>(氣泡排序法)</i></rt></ruby>.
+2. Understand the concept of "<ruby>Inversions" <rt><i>(逆序數對)</i></rt><ruby> in an array.
+3. 
 
-## Preliminary thinking
+## Thinking
 ### variable reference
 | 變數 | 意義 |
 | :--- | :--- |
-| `a` | input number 1 |
-| `b` | input number 2 |
-| `c` | core loop variable |
-| `times` | core loop to caculate cycle length |
-| `max` | every time to store max cycle lenth | 
+| `T` | input: number of test cases (測資數量) |
+| `C` | input: length of the train / number of carriages (車廂數量) |
+| `carriages` | vector to store the current order of carriages |
+| `times` | core variable to count the total number of swaps |
+| `temp` | to put carriage number in vector |
+
 ### Algorithm logic
 ```text
-1. input a, b
-2. for loop(a -> b)
-3.      while loop(c != 1)
-4.          ++times
-5.          (the core algorithm of 3n+1)
-6.      if(max < times)
-7.          max = times
-8. output
+1. input T
+2. while loop (T--)
+3.      input C
+4.      for loop (0 -> C) to input carriages sequence
+5.      for loop (i: 0 -> C - 1)
+6.          for loop (j: 0 -> C - 1)
+7.              if (carriages[j] > carriages[j + 1])
+8.                  swap(carriages[j], carriages[j + 1])
+9.                  times++
+10.     output times
 ```
 
 ## Challenges
-1. `a` must smaller than `b`.
-2. core loop is wrong, the condition of variable `c` shoud be check after `times++`.
-3. 0 is not in the cindition.
+1. First version, my core code is already quite close to Bubble Sort, but I restart the check from the beginning every time a swap occurs, which makes the time complexity unstable.
 
 ## New code struct
 <details>
-<summary> <head>click to open<head> </summary>
+<summary> <head>click to open V2 (AC Code)</head> </summary>
 
 ```C++
-#include <iostream>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 int main()
 {
-	long long int a, b, c;
-	long long int times{ 0 }, max{ 0 };
-	while (cin >> a >> b)
-	{
-		cout << a << " " << b;//在互換之前先輸出滿足題目要求
-		if (a > b)//a固定要 < b
-			swap(a, b);
-		max = 0;//每一次max都要作重製，否則會使用到上一組測資的資料
+    ios::sync_with_stdio(0), cin.tie(0);
 
-		for (long long int i{ a }; i <= b; i++)
-		{
-			c = i;//a b i作為for loop的基準，不可做更動，因此使用新變數來作為core code的變數基準
-			times = 0;//每一次的time都需要作重製，不然每一次會逐漸累加
-			while (true)
-			{
-				times++;
-				if (c == 1)
-					break;
+    int T;
+    cin >> T;
 
-				if (c % 2 == 1)
-					c = 3 * c + 1;
-				else
-					c /= 2;
-			}
-			if (max < times)
-				max = times;
-		}
+    while(T--)
+    {
+        vector<int> carriages; // 優化：宣告在迴圈內，每次測資自動重置，省去 clear()
+        int C, temp, times{ 0 }; // times 也要放在這裡，每次測資重置為 0
+        cin >> C;
+        
+        for(int i{0}; i < C; i++)
+        {
+            cin >> temp;
+            carriages.push_back(temp);
+        }
 
-		cout << " " << max << endl;
-	}
+        // core code：氣泡排序法 (Bubble Sort)
+        for(int i{0}; i < C - 1; i++)
+        {
+            for (int j{ 0 }; j < C - 1; j++) // 可優化為 j < C - 1 - i
+            {
+                if (carriages[j] > carriages[j + 1])
+                {
+                    swap(carriages[j], carriages[j + 1]);
+                    times++;
+                }
+            }
+        }
+        cout << "Optimal train swapping takes " << times << " swaps.\n";
+    }
 }
 ```
 
 </details>
 
-[source code](v2(AC).cpp)
-
 ## Complexity Analysis
-- Time complexity：*O(N \* C)
-- Space complexity： *O(1)
+Time complexity: O(T * C^2)
+Space complexity: O(C)
 
 ## Note
-1. 真的不行就看中文版。
-2. **不要緊張！！！不要緊張！！！不要緊張！！！**
-> 💡 緊張就會亂思路！
-3. 寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
-4. 多考慮一些，瘋狂程式的要求很高！換行都會要求！
+
+
+[New] 遇到多筆測資 (Test Cases) 時，優先考慮把變數跟陣列宣告在 while 迴圈裡面，讓它們自動重生，可以避免很多忘記歸零的低級失誤！
