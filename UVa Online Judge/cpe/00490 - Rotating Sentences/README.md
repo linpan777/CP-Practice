@@ -14,10 +14,11 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 | :--- | :--- |
 | `sentences[]` | Two-dimensional string to store every lines |
 | `line` | horizontally read data (Rows) |
-| `max_row` |  |
+| `max_row` | vertical read data (the max column) |
+
 ~~這邊行列不小心搞混了~~
 > [!IMPORTANT]
-> 列 = row``horizontally``
+> 列 = row``horizontally``<br>
 > 行 = column``vertical``
 
 ### Algorithm logic
