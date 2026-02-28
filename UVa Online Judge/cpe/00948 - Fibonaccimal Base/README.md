@@ -65,8 +65,8 @@ main：
 </details>
 
 ## Challenges
-1. Unnecessary Hardcoding <sub>Overcomplicating base cases</sub>
-2. Redundant Calculation <sub>Calculating Fibonacci sequence inside the while loop for every test case</sub>
+1. Unnecessary Hardcoding over complicating base cases<sub>1, 2 conditions</sub>
+2. <ruby>Redundant<rt>*多餘的*</rt></ruby> Calculation <sub>Calculating Fibonacci sequence inside the while loop for every test case</sub>
 
 ## New code struct
 <details>
