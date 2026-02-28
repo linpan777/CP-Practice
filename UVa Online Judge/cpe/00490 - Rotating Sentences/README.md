@@ -101,7 +101,7 @@ int main()
 [source code](v2(更好).cpp)
 
 ## <ruby>Optimization<rt>*優化*</rt></ruby> Points:
-1. ### Removed wrong variable name
+1. Removed wrong variable name
 
 ## Complexity Analysis
 - Time complexity： $O(N \times M)$
