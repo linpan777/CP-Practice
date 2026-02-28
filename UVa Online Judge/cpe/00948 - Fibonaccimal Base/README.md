@@ -16,9 +16,6 @@ Brief description of the problem -> [here](https://onlinejudge.org/index.php?opt
 | `T` | The number of test cases |
 | `n` | The target positive integer to be converted |
 
-> [!IMPORTANT]
-> 費氏數列成長極快，第 39 項即超過一億 ($10^8$)，因此陣列開到 45 已經非常足夠，無須開到過大的記憶體空間。
-
 ### Algorithm logic
 ```text
 main：
@@ -92,7 +89,7 @@ int main()
         cout << n << " = ";//提早印出n =
 
         int i{ 0 };
-        while (n >= fib[i])//找出n在fib數列中小於等於n的最大index
+        while (n >= fib[i])//找出n在fib數列中小於等於n的最大index設為i
             i++;
 
         for (int j{ i - 1 }; j >= 0; j--)//從最大index開始往下檢查(需從i - 1開始才是<=n的max number)
@@ -123,3 +120,7 @@ Reduced the array size from `fib[501]` to `fib[45]` based on the constraint ($N 
 ## Complexity Analysis
 - Time complexity： $O(T + 45)$
 - Space complexity： $O(45)$
+
+> [!Note]
+> 費氏數列成長極快，第 39 項即超過一億 ($10^8$)，因此陣列開到 45 已經非常足夠，無須開到過大的記憶體空間。
+> 尋找小於等於n的最大index時，n也必須包含**=**，否則符合費式數列的數<sub>eg.1,2,3,5</sub>在進行後續core loop時會錯位

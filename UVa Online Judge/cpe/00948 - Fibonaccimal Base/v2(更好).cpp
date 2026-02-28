@@ -17,7 +17,7 @@ int main()
 		cout << n << " = ";//提早印出n =
 
 		int i{ 0 };
-		while (n >= fib[i])//找出n在fib數列中小於等於n的最大index
+		while (n >= fib[i])//找出n在fib數列中小於等於n的最大index設為i
 			i++;
 
 		for (int j{ i - 1 }; j >= 0; j--)//從最大index開始往下檢查(需從i - 1開始才是<=n的max number)，若fib[j] > n則印0，反之則n減去fib[j]並印1
