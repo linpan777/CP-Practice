@@ -42,6 +42,8 @@ main：
 ```
 <details>
 <summary> <head>點擊查看中文版<head> </summary>
+
+```text
 1. 初始化陣列 fib[0] = 1, fib[1] = 2
 2. 迴圈 i 從 2 跑到 44： // 建表預處理，不要在測資迴圈內重複算
 3.      fib[i] = fib[i-1] + fib[i-2]
@@ -59,6 +61,7 @@ main：
 15.         否則：
 16.             印出 '0'
 17.     印出 " (fib)\n"
+```
 </details>
 
 ## Challenges
