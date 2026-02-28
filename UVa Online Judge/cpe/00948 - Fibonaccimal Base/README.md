@@ -113,11 +113,11 @@ int main()
 [source code](v2(更好).cpp)
 
 ## Optimization Points:
-1. <ruby>Precomputation<rt>建表預處理</rt></ruby>
+1. <ruby>Precomputation<rt>建表預處理</rt></ruby>：<br>
 Moved the Fibonacci calculation outside the test case loop. Precomputing it globally allows for $O(1)$, reduces time complexity.
-2. Removed unnecessary hardcoding:
+2. Removed unnecessary hardcoding:<br>
 Removed special cases for `n == 1` and `n == 2`. Relying purely on the core greedy logic makes the code much cleaner.
-3. Array Size Optimization
+3. Array Size Optimization：<br>
 Reduced the array size from `fib[501]` to `fib[45]` based on the constraint ($N < 10^8$) to save memory space.
 
 ## Complexity Analysis
