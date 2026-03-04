@@ -2,7 +2,18 @@
 
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=12&page=show_problem&problem=979)
 
-## 邏輯：
+## Thinking
+
+### variable reference
+| variable | meaning |
+| :--- | :--- |
+| `n` | The total number of integers in the current sequence |
+| `jolly` | A boolean flag initialized to true, used to track whether the sequence is a Jolly Jumper |
+| `number[]` | A boolean array initialized to false, used as a checklist to mark which absolute differences have appeared |
+| `first` | Stores the previously read integer, used to calculate the absolute difference with the current integer |
+| `second` | Stores the current integer being read in the loop |
+
+### 邏輯:
 ```text
 1. input n
 2. bool jolly = true, bool number[3000] = false;
