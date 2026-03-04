@@ -2,7 +2,16 @@
 
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1870)
 
-## 邏輯:
+## Thinking
+
+### variable reference:
+| variable | meaning |
+| :--- | :--- |
+| `number` | Stores the large input integer as a string |
+| `temp1` | The sum of digits at odd positions |
+| `temp2` | The sum of digits at even positions |
+
+### 邏輯:
 ```text
 Core:
 1. int temp1 = 0, temp2 = 0
