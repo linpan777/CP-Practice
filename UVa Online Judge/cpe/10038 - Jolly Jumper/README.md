@@ -17,3 +17,22 @@
 11. if(jolly) cout Jolly
 12. else cout Not Jolly
 ```
+
+<details>
+<summary><head>點擊查看中文版</head></summary>
+
+```text
+1. 輸入 n
+2. 設定布林變數 jolly = true，以及布林陣列 number[3000] 全部設為 false
+3. 輸入第一個數字，存入 first
+4. 執行迴圈 (執行 n - 1 次)：
+5.      輸入下一個數字，存入 second
+6.      將陣列 number[abs(first - second)] 的位置標記為 true
+7.      將 second 的值交給 first
+8. 執行迴圈 i (從 1 到 n - 1)：
+9.      如果 number[i] 等於 false，則 jolly = false 並跳出迴圈 (break)
+10.     否則，繼續下一圈 (continue)
+11. 如果 jolly 為 true，輸出 "Jolly"
+12. 否則，輸出 "Not jolly"
+```
+</details>
