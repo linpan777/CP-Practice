@@ -37,7 +37,6 @@ bool mycmp(int a, int b)
 	else if (a % dividend > b % dividend)
 		return 0;
 
-
 	if (a % 2 != 0 && b % 2 == 0)
 		return 1;
 	else if (a % 2 == 0 && b % 2 != 0)
