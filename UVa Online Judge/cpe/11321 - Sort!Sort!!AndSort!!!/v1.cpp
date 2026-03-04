@@ -3,7 +3,6 @@
 #include<vector>
 using namespace std;
 
-vector<int> modulo;
 int dividend{ 0 };
 
 bool mycmp(int a, int b);
@@ -12,21 +11,22 @@ int main()
 {
 	ios::sync_with_stdio(0), cin.tie(0);
 	int T, temp{ 8787 };
-	cin >> T >> dividend;
 
-	while(true)//原本：(temp != 0)
+	while(cin >> T >> dividend && (T != 0 && dividend != 0))//多筆測資時用
 	{
-		cin >> temp;
-		if (temp == 0)//原本無
-			break;
-		modulo.push_back(temp);
+		vector<int> modulo;//每一次都要重製vector，避免殘留上一次測資
+
+		for(int i{0}; i < T; i++)
+		{	
+			cin >> temp;
+			modulo.push_back(temp);
+		}
+		sort(modulo.begin(), modulo.end(), mycmp);//用sort排序
+
+		cout << T << ' ' << dividend << '\n';
+		for (int i : modulo)
+			cout << i << '\n'; 
 	}
-	sort(modulo.begin(), modulo.end(), mycmp);
-
-	cout << T << ' ' << dividend << '\n';
-	for (int i : modulo)
-		cout << i << '\n'; 
-
 	cout << "0 0\n";
 }
 

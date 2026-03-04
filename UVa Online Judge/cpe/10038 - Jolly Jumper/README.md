@@ -23,7 +23,7 @@
 
 ```text
 1. 輸入 n
-2. 設定布林變數 jolly = true，以及布林陣列 number[3000] 全部設為 false
+2. 設定bool jolly = true，以及bool number[3000] = {false}
 3. 輸入第一個數字，存入 first
 4. 執行迴圈 (執行 n - 1 次)：
 5.      輸入下一個數字，存入 second
