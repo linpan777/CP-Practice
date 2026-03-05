@@ -15,9 +15,9 @@ int main()
 		
 		int answer2{0}, answer1{0};
 		
-        answer2 = sum2 * (sum2+1) / 2;
+        answer2 = sum2 * (sum2+1) / 2;//由for loop改為等差公式
         answer1 = sum1 * (sum1+1) / 2;
-		answer2 += x2 - answer1 - x1;
+		answer2 += x2 - answer1 - x1;//第二組座標減第一組
 		
 		cout << "Case " << time++ << ": " << answer2 << '\n';
 	}
