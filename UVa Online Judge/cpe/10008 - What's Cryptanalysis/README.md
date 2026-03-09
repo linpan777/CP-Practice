@@ -38,7 +38,8 @@ main:
 15.             Print (char)(j + 'A') and character[j]
 ```
 <details>
-<summary> <head>點擊查看中文版<head> </summary>
+<summary><head>點擊查看中文版<head></summary>
+
 ```text
 1. 讀取行數 T
 2. 清除輸入緩衝區中殘留的換行字元 (cin.ignore)
