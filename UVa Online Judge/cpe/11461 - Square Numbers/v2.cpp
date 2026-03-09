@@ -15,10 +15,11 @@ int main()
 			
 		for(int i{first}; i <= last; i++)
 		{
-			int number = sqrt(i);//將平方根無條件捨去變為整數，有效解決float比對的問題
-			if(number * number == i)//ex.sqrt(3) = 1, sqrt(4) = 2, sqrt(5) = 2
+			int number = sqrt(i);
+			if(number * number == i)
 				count++;
 		}
 		cout << count << '\n';
 	}
 }
+//利用高斯取整
