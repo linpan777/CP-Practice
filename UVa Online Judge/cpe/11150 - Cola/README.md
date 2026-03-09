@@ -48,7 +48,7 @@
 ```
 
 <details>
-<summary><head></head></summary>
+<summary><head>點擊查看中文版</head></summary>
 
 ```text
 1. 當持續輸入 n (初始購買數量):
