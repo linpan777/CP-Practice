@@ -44,12 +44,15 @@
 4.          字元轉換對應temp (0-9 -> 0-9, A-Z -> 10-35, a-z -> 36-61)。
 5.          更新 max 以記錄字串中出現過的最大數值 <sub>用來決定猜測的起點</sub>
 6.          total += temp <sub>將數值加入總積分</sub>
+
 7.      如果 max == 0 <sub>例如輸入全為 "0"</sub>:
 8.          輸出min進位制2, continue
+
 9.      使用迴圈讓 n 從 (max + 1) 測試到 62:
 10.         如果 total % (n - 1) == 0 <sub>總積分能被進位制減一整除</sub>:
 11.             輸出找到的最小進位制 n。
 12.             將 value 設為 true, break。
+
 13.     如果迴圈跑完 value 依然是 false:
 14.         cout "such number is impossible!"
 ```

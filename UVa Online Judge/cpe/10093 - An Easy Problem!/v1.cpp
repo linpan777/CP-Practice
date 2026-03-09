@@ -12,6 +12,8 @@ int main()
 		bool value = false;
 		int max{0};
 		int total{0};
+        
+        //找出數字相加總合 & 最低從哪個進制開始猜
 		for(int i{0}; i < number_sy.size(); i++)
 		{
 			int temp{0};
@@ -30,13 +32,15 @@ int main()
 			total += temp;//全部相加之後用來判斷
 		}
 		
-		if(max == 0)//預先排除0
+        //預先排除0
+		if(max == 0)
 		{
 			cout << 2 << '\n';
 			continue;
 		}
-			
-		for(int n{max + 1}; n <= 62; n++)//core algorithm
+		
+        //core algorithm
+		for(int n{max + 1}; n <= 62; n++)
 			if(total % (n - 1) == 0)
 			{
 				cout << n << '\n';
