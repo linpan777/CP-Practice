@@ -35,7 +35,7 @@
 ```
 
 <details>
-<summary><head>點擊查看中文版</head><summary>
+<summary><head>點擊查看中文版</head></summary>
 
 ```text
 1. 當持續輸入字串 number_sy:
