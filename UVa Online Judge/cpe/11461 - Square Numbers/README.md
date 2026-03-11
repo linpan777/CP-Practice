@@ -13,9 +13,9 @@
 | `first` | The starting number of the range |
 | `last` | The ending number of the range |
 | `count` | Stores the total number of perfect squares within the range |
-| `number`| <sub>Used in V1</sub> Stores the truncated square root to verify if i is a perfect square |
+| `number`| <sub>Used in `V1`</sub> Stores the truncated square root to verify if i is a perfect square |
 
-## version 1 - 邏輯:
+### version 1 - 邏輯:
 ```text
 1. cin first, last
 2. Initialize count //Avoid affecting the next test case
@@ -42,7 +42,7 @@
 ```
 </details>
 
-## version 2 - 邏輯:
+### version 2 - 邏輯:
 ```text
 1. cin >> first >> last
 2. if(first == 0 && last == 0); return 0
