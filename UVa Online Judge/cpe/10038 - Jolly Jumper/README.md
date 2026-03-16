@@ -3,19 +3,23 @@
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=979)
 
 ## Introduction:
-The core of this problem is to determine if the absolute differences between successive elements in a sequence of $n$ numbers take on all values from $1$ through $n-1$. We achieve this by calculating the differences and marking them in a boolean array (acting as a checklist). A critical trap in this problem is input stream management, specifically handling the edge case where $n = 1$.
+The core of this problem is to determine if the absolute differences between successive elements in a sequence of $n$ numbers take on all values from $1$ through $n-1$
+1. Achieve this by calculating the differences and marking them in a boolean array. A critical trap in this problem is input stream management, specifically handling the edge case where $n = 1$.
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
 
-核心是判斷一個包含 $n$ 個數字的序列中，相鄰兩個元素的絕對差值是否剛好涵蓋了 $1$ 到 $n-1$ 的所有數字。我們透過計算差值並記錄在布林陣列（檢查表）中來解題。這題最大的陷阱在於「輸入流的讀取節奏」，特別是在處理 $n = 1$ 的極端情況。
+核心是判斷一個包含 $n$ 個數字的序列中，相鄰兩個元素的絕對差值是否剛好涵蓋了 $1$ 到 $n-1$ 的所有數字
+1. 透過計算差值並記錄在bool array來解題
+> [!NOTE]
+> 陷阱： 輸入流的讀取節奏」，特別是在處理 $n = 1$ 的極端情況
 
 <details>
 <summary><head>點擊查看演算法與除錯詳情</head></summary>
 
 ## core logic：讀取節奏與避免越界 (Runtime Error)
-這題的 V1 寫法會導致 Runtime Error (RE)，而 V2 則順利 Accepted (AC)，原因在於**應對極端值 $n = 1$ 的讀取方式**。
-如果沒有確保 $n \ge 2$ 就強行讀取兩個數字，會把下一筆測資的資料吸過來，導致輸入流徹底錯亂，進而產生極大的差值引發陣列越界。
+這題的 V1 寫法會導致 Runtime Error (RE)，而 V2 則順利 Accepted (AC)，原因在於**應對極端值 $n = 1$ 的讀取方式**
+如果沒有確保 $n \ge 2$ 就強行讀取兩個數字，會把下一筆測資的資料吸過來，導致輸入流徹底錯亂，進而產生極大的差值引發陣列越界
 
 ## 實際演練 (Dry Run) 致命錯誤分析：
 假設有兩筆測資：
@@ -108,7 +112,7 @@ The core of this problem is to determine if the absolute differences between suc
 <summary><head>點擊查看中文版</head></summary>
 
 ### Time Complexity: 
-* **Version 2:** $O(N)$ - 我們將 $N$ 個數字遍歷一次以讀取輸入並計算差值，接著再執行一次長度為 $N-1$ 的迴圈來檢查布林陣列。時間與 $N$ 成正比。
+* **Version 2:** $O(N)$ - 將 $N$ 個數字遍歷一次以讀取輸入並計算差值，接著再執行一次長度為 $N-1$ 的迴圈來檢查布林陣列。時間與 $N$ 成正比。
 ### Space Complexity: 
 * **Version 2:** $O(1)$ - 題目限制 $n \le 3000$。我們宣告了一個固定大小為 3000 的布林陣列，無論輸入長度 $n$ 為何，記憶體消耗皆為常數級別。
 </details>
