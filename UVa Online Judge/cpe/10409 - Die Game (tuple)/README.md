@@ -8,6 +8,59 @@
 2. 骰子的重要性質：對面之和永遠為 7（1+6=7, 2+5=7, 3+4=7）。<br>
 3. 可採用全域變數逐個交換、結構體配合推導、或 tuple 同時賦值等方式求解。
 
+<details>
+<summary><head>點擊查看 tuple 與 tie 的用法</head></summary>
+
+### 什麼是 tuple？
+`tuple` 是一個 C++ 標準函式庫中的容器，用來儲存**不同型別**的多個值。類似於結構體，但更靈活。
+
+### 基本語法：
+```cpp
+#include <tuple>
+using namespace std;
+
+// 1. 建立 tuple
+tuple<int, int, int> t = make_tuple(1, 2, 3);
+
+// 2. 取得 tuple 中的值
+int first = get<0>(t);  // 取得第 1 個元素：1
+int second = get<1>(t); // 取得第 2 個元素：2
+int third = get<2>(t);  // 取得第 3 個元素：3
+
+// 3. 使用 tie 進行「同時賦值」
+int a, b, c;
+tie(a, b, c) = t;  // a=1, b=2, c=3
+```
+
+### tie + make_tuple 的威力 - 同時賦值
+這題中最重要的用法：**用 tie + make_tuple 同時交換多個變數，避免繁瑣的逐個交換**
+```cpp
+struct Die {
+    int up, north, down, south;
+};
+
+Die mydie;
+
+// ❌ 傳統做法（4 行程式碼）
+int temp = mydie.up;
+mydie.up = mydie.north;
+mydie.north = mydie.down;
+mydie.down = mydie.south;
+mydie.south = temp;
+
+// ✅ tuple 做法（1 行程式碼）
+tie(mydie.up, mydie.north, mydie.down, mydie.south) 
+    = make_tuple(mydie.north, mydie.down, mydie.south, mydie.up);
+```
+
+### 為什麼 v3 使用 tuple？
+- **直觀性**：清楚寫出每個變數的新值，易於理解交換邏輯
+- **簡潔性**：4 行複雜邏輯濃縮成 1 行
+- **原子性**：同時賦值，避免中間狀態出現 bug
+- **易維護**：當需要交換的變數增加時，只需在 tie() 和 make_tuple() 中添加即可
+
+</details>
+
 ## Thinking
 
 ### variable reference:
