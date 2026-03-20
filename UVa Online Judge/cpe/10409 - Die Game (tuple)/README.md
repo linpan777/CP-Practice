@@ -14,6 +14,11 @@
 ### 什麼是 tuple？
 `tuple` 是一個 C++ 標準函式庫中的容器，用來儲存**不同型別**的多個值。類似於結構體，但更靈活。
 
+### 什麼是 tie？
+`tie()` 是用來將 tuple 中的值**「解包」成各個獨立的變數**。簡單來說，它的反方向是 `make_tuple()`：
+- `make_tuple(1, 2, 3)` → 把 3 個值打包成 1 個 tuple
+- `tie(a, b, c)` → 把 1 個 tuple 拆包成 3 個變數
+
 ### 基本語法：
 ```cpp
 #include <tuple>
@@ -21,6 +26,36 @@ using namespace std;
 
 // 1. 建立 tuple
 tuple<int, int, int> t = make_tuple(1, 2, 3);
+//也可以使用auto t = make_tuple(1, 2, 3);
+
+// 2. 取得 tuple 中的值
+int first = get<0>(t);  // 取得第 1 個元素：1
+int second = get<1>(t); // 取得第 2 個元素：2
+int third = get<2>(t);  // 取得第 3 個元素：3
+
+// 3. 使用 tie 進行「同時賦值」（這是骰子題最關鍵的用法）
+int a, b, c;
+tie(a, b, c) = t;  // 相當於：a=1, b=2, c=3
+
+// 4. 實際例子
+int x = 10, y = 20, z = 30;
+tie(x, y, z) = make_tuple(y, z, x);  // x=20, y=30, z=10（循環右移）
+```
+
+### tie 在幹什麼？
+`tie(a, b, c) = make_tuple(...)` 這行指令的意思是：
+1. 右邊 `make_tuple(...)` 建立一個臨時的 tuple，裡面有 3 個值
+2. 左邊 `tie(a, b, c)` 將這個 tuple 中的 3 個值**同時賦值**給 a、b、c
+3. 關鍵是：所有賦值在**同一個時刻**發生，不會相互干擾
+
+### 基本語法：
+```cpp
+#include <tuple>
+using namespace std;
+
+// 1. 建立 tuple
+tuple<int, int, int> t = make_tuple(1, 2, 3);
+//也可以用auto t = make_tuple(1, 2, 3);
 
 // 2. 取得 tuple 中的值
 int first = get<0>(t);  // 取得第 1 個元素：1
