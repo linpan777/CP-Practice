@@ -48,25 +48,6 @@ tie(x, y, z) = make_tuple(y, z, x);  // x=20, y=30, z=10（循環右移）
 2. 左邊 `tie(a, b, c)` 將這個 tuple 中的 3 個值**同時賦值**給 a、b、c
 3. 關鍵是：所有賦值在**同一個時刻**發生，不會相互干擾
 
-### 基本語法：
-```cpp
-#include <tuple>
-using namespace std;
-
-// 1. 建立 tuple
-tuple<int, int, int> t = make_tuple(1, 2, 3);
-//也可以用auto t = make_tuple(1, 2, 3);
-
-// 2. 取得 tuple 中的值
-int first = get<0>(t);  // 取得第 1 個元素：1
-int second = get<1>(t); // 取得第 2 個元素：2
-int third = get<2>(t);  // 取得第 3 個元素：3
-
-// 3. 使用 tie 進行「同時賦值」
-int a, b, c;
-tie(a, b, c) = t;  // a=1, b=2, c=3
-```
-
 ### tie + make_tuple 的威力 - 同時賦值
 這題中最重要的用法：**用 tie + make_tuple 同時交換多個變數，避免繁瑣的逐個交換**
 ```cpp
