@@ -4,13 +4,11 @@
 
 ## 簡介
 
-想像你有一台印表機，列印不同的字元需要消耗不同量的墨水（成本不同）。
-題目會給定印出 `0~9` 和 `A~Z`（共 36 個字元）各自的成本。
-接著給你一個十進位數字，要求你計算：**將這個數字轉換成 2 進位到 36 進位後，哪一種進位制的總列印成本最低？**
+題目給定印出 `0~9` 和 `A~Z`（共 36 個字元）各自的成本
+接著給你一個十進位數字，要求計算：**將這個數字轉換成 2 進位到 36 進位後，哪一種進位制的總列印成本最低？**
 
 1. **核心演算法**：使用「短除法（剝洋蔥）」將十進位數字轉換為 $N$ 進位，並在過程中同步查表累加成本。
 2. **多重平手處理**：如果有多個進位制的最低成本相同，必須由小到大將它們全部印出。
-3. 可將所有邏輯寫在主迴圈中（V1），或將「計算成本」的邏輯獨立成函式以增加可讀性並處理數字 `0` 的特例（V2）。
 
 <details>
 <summary><head>點擊查看「短除法算成本」的核心原理</head></summary>
@@ -113,35 +111,6 @@ while(number != 0)
 ```
 </details>
 
-### version 2 (Refactored) - 邏輯:
-```text
-1. Define a helper function calculateCost(num, base, price[])
-2.      If num == 0, return price[0] (Handle the edge case for 0)
-3.      Perform the short division while loop and return total cost
-4. In main(), read inputs same as V1
-5. For each query number:
-6.      For base = 2 to 36:
-7.          cost[base] = calculateCost(number, base, price)
-8.          Update minimum cost (less)
-9.      Print all bases that match the minimum cost
-```
-
-<details>
-<summary><head>點擊查看中文版</head></summary>
-
-```text
-1. 定義一個輔助函式 calculateCost(數字, 進位制, 價目表陣列)
-2.      如果數字是 0，直接回傳 price[0]（修復數字 0 的極端情況）
-3.      執行短除法剝洋蔥迴圈，並回傳總成本
-4. 在主程式中，讀取測資的方式與 V1 相同
-5. 對於每一個查詢數字：
-6.      利用 for 迴圈從 2 跑到 36：
-7.          呼叫函式計算成本並存入 cost[base]
-8.          更新最低成本變數
-9.      印出所有成本等於最低成本的進位制
-```
-</details>
-
 ## 複雜度分析
 
 | 版本 | 時間複雜度 | 空間複雜度 |
@@ -149,14 +118,3 @@ while(number != 0)
 | V1 & V2 | $O(Q \times 35 \times \log N)$ | $O(1)$ |
 
 * 註：$Q$ 為查詢次數，$N$ 為查詢的數字大小。由於基數固定從 2 到 36（共 35 次迴圈），且每次轉換的時間取決於短除法的次數 $\approx \log_{base}(N)$，而空間只需常數大小的陣列即可。
-
-## 版本對比
-
-| 特性 | V1 | V2 (重構版) |
-| :--- | :--- | :--- |
-| 架構設計 | 巢狀迴圈（全擠在 main） | 函式抽離 (Function Extraction) |
-| 數字 0 的處理 | 剛好平手過關（存在潛在 Bug） | 完美攔截並處理 `0` 的特例 |
-| `number` 暫存 | 需手動宣告 `numberTemp` | 傳值呼叫 (Pass by value)，自動保護 |
-| 程式碼簡潔度 | 中 | 高 |
-| 易讀性 | 中 | 極高 |
-| 推薦指數 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
