@@ -55,8 +55,8 @@
 1. read T
 2. while (T-- > 0):
 3.     read M
-4.     b1 ← binary(M)          // 計算 M 轉二進位的 1 數量
-5.     b2 ← binary(hex(M))     // 先將 M 視為十六進位轉成十進位數值，再算二進位 1 數量
+4.     b1 ← binary(M)          // Calculate the number of 1s in the binary representation of M
+5.     b2 ← binary(hex(M))     // Treat M as hex, convert to decimal, then count binary 1s
 6.     output: b1 b2
 7.
 8. function binary(M):
@@ -69,7 +69,7 @@
 15. function hex(M):
 16.    dec ← 0, i ← 0
 17.    while (M != 0):
-18.        dec += (M % 10) * pow(16, i++)  // 危險：使用 pow 算整數
+18.        dec += (M % 10) * pow(16, i++)  // Danger: using pow for integer calculations
 19.        M /= 10
 20.    return dec
 ```
@@ -106,9 +106,9 @@
 1. read T
 2. while (T-- > 0):
 3.     read M
-4.     b1 ← __builtin_popcount(M)   // O(1) 硬體指令直出
+4.     b1 ← __builtin_popcount(M)   // O(1) hardware instruction
 5.     b2 ← 0
-6.     while (M != 0):              // 捷徑：獨立拆解每個位數
+6.     while (M != 0):              // Shortcut: process each digit independently
 7.         b2 += __builtin_popcount(M % 10) 
 8.         M /= 10
 9.     output: b1 b2
